@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Final Chapter - Mungkin Nanti Lagi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Amatic SC', cursive;
+      margin: 0;
+      padding: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+
+    .panel, .music-panel {
+      background-color: white;
+      border: 2px solid black;
+      padding: 6px 15px;
+      margin-bottom: 20px;
+      box-shadow: 4px 4px black;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .panel img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .caption, .music-text-top {
+      font-size: 1.5em;
+      margin-top: 10px;
+      user-select: none;
+      text-align: center;
+    }
+
+    .sound-effect {
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #555;
+      font-style: italic;
+      margin-top: 5px;
+      user-select: none;
+    }
+
+    .music-controls {
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      user-select: none;
+    }
+
+    .music-controls button {
+      background-color: transparent;
+      border: none;
+      font-family: 'Amatic SC', cursive;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 0;
+      color: black;
+      transition: transform 0.15s ease;
+    }
+
+    .music-controls button.play-button {
+      font-size: 28px;
+    }
+
+    .music-controls button:hover {
+      transform: scale(1.2);
+      color: #555;
+    }
+
+    .nav-container {
+      text-align: center;
+      margin: 50px 0;
+    }
+
+    .main-nav-btn {
+      background-color: black;
+      color: white;
+      font-size: 1.5em;
+      padding: 10px 30px;
+      border-radius: 5px;
+      box-shadow: 2px 2px gray;
+      font-family: 'Amatic SC', cursive;
+      cursor: pointer;
+    }
+
+    #navPopup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 300px;
+      margin: auto;
+      box-shadow: 4px 4px black;
+      font-family: 'Amatic SC', cursive;
+    }
+
+    .popup-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .popup-buttons a {
+      text-decoration: none;
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-family: 'Amatic SC', cursive;
+    }
+
+    #navPopup.active {
+      display: flex;
+    }
+
+    /* Fade-in untuk paragraf tersembunyi */
+    #hiddenSecret {
+      opacity: 0;
+      display: none;
+      transition: opacity 0.6s ease;
+    }
+
+    #hiddenSecret.show {
+      display: block;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Final Chapter: Mungkin Nanti Lagi</h1>
+
+  <div class="music-panel">
+    <div class="music-text-top">Bacanya Sambil Dengerin Ini</div>
+    <div class="music-controls">
+      <audio id="audio" src="SC6.mp3"></audio>
+      <button onclick="restartAudio()" title="Restart Audio">⟲</button>
+      <button onclick="rewind()" title="Rewind 5 detik">↺</button>
+      <button onclick="togglePlay()" id="playBtn" class="play-button" title="Play/Pause">▶</button>
+      <button onclick="forward()" title="Forward 5 detik">↻</button>
+      <button onclick="restartAudio()" title="Restart Audio">⟳</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="caption">22 Mei 2025</div>
+    <div class="caption">Sekolah rame. Isinya orang-orang yang pengen cepat-cepat bebas dari SMK, termasuk aku. Tapi aku gak buru-buru, karena hari itu aku ngerasa bakal ketemu sesuatu yang penting. Atau seseorang.</div>
+    <img src="C6P1.png" alt="Gerbang Sekolah" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Dia ada di sana. Lagi ngurus berkas juga. Kelihatannya biasa aja. Tapi buatku, ngelihat dia kayak nonton film bagus, walaupun cuma satu adegan doang. Dan adegannya diem.</div>
+    <img src="C6P2.png" alt="Gadis Berjalan" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Aku datengin dia. Nanya-nanya dikit soal ijazah. Obrolan standar, tapi yang aku denger cuma suaranya. Sisanya lewat. Kayak angin.</div>
+    <img src="C6P3.png" alt="Tatapan Mata" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Dia bilang mau masuk pesantren. Di Kediri. Aku cuma bisa bilang “oh”. Padahal aku pengen bilang “jangan jauh-jauh”, tapi itu gak sopan. Dan gak penting juga. Lagian itu hidup dia, bukan hidupku.</div>
+    <img src="C6P4.png" alt="Siswa Diam" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Obrolan selesai kayak lampu dimatiin. Gak ada penutup. Dia senyum, aku ngangguk. Rasanya kayak naik motor jauh-jauh cuma buat beli teh botol, tapi tetep puas.</div>
+    <img src="C6P5.png" alt="Punggung Gadis" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Aku gak bilang apa-apa lagi. Cuma jalan. Mungkin itu terakhir kali aku lihat dia. Gak apa-apa. Yang penting, aku udah lihat dia hari itu. Dan itu cukup.</div>
+    <img src="C6P6.png" alt="Harapan" />
+  </div>
+
+  <div class="nav-container">
+    <button id="mainNavBtn" class="main-nav-btn">Selesai</button>
+  </div>
+
+  <div id="navPopup">
+    <div class="popup-content">
+      <p style="font-size: 1.5em;">Yakin Mau Selesai Gitu Aja?</p>
+      <p style="font-size: 1.5em;">Selesai sekarang tuh, kayak bangun pas mimpi lagi seru-serunya. Sayang banget kan?</p>
+
+      <!-- Tombol untuk membuka paragraf tersembunyi -->
+      <button id="revealSecretBtn" style="font-size: 1.2em; margin-top: 10px; font-family: 'Amatic SC', cursive; background: none; border: none; cursor: pointer; color: #555; text-decoration: underline;">
+        (ada pesan nih!, klik aja)
+      </button>
+
+      <!-- Paragraf tersembunyi -->
+      <p id="hiddenSecret" style="font-size: 1.5em;">
+        Chapter ini buat kamu. Tapi kamu gak bakal tau. Dan aku juga gak bakal bilang. Biar aja gitu. Kayak rahasia yang manis tapi gak usah dikasih tahu.
+      </p>
+
+      <p style="font-size: 1.5em;">Yuk lanjut Yuk</p>
+      <div class="popup-buttons">
+        <a href="chapter5.html">← Kembali</a>
+        <a href="bonus-chapter.html">Lanjut →</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playBtn = document.getElementById('playBtn');
+    const navPopup = document.getElementById('navPopup');
+    const mainNavBtn = document.getElementById('mainNavBtn');
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+        playBtn.textContent = '❚❚';
+      } else {
+        audio.pause();
+        playBtn.textContent = '▶';
+      }
+    }
+
+    function forward() {
+      audio.currentTime += 5;
+    }
+
+    function rewind() {
+      audio.currentTime -= 5;
+      if (audio.currentTime < 0) audio.currentTime = 0;
+    }
+
+    function restartAudio() {
+      audio.currentTime = 0;
+      if (!audio.paused) {
+        audio.play();
+      }
+    }
+
+    audio.addEventListener('ended', () => {
+      playBtn.textContent = '▶';
+    });
+
+    mainNavBtn.addEventListener('click', () => {
+      navPopup.classList.add('active');
+    });
+
+    navPopup.addEventListener('click', (e) => {
+      if (e.target === navPopup) {
+        navPopup.classList.remove('active');
+      }
+    });
+
+    // Reveal paragraf tersembunyi
+    const revealBtn = document.getElementById('revealSecretBtn');
+    const hiddenSecret = document.getElementById('hiddenSecret');
+
+    revealBtn.addEventListener('click', () => {
+      hiddenSecret.style.display = 'block';
+      setTimeout(() => {
+        hiddenSecret.classList.add('show');
+      }, 10);
+      revealBtn.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>

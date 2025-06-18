@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chapter 2 -Senyumnya Nggak Pakai Alarm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Amatic SC', cursive;
+      margin: 0;
+      padding: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+
+    /* Desain panel cerita dan musik sama */
+    .panel, .music-panel {
+      background-color: white;
+      border: 2px solid black;
+      padding: 6px 15px; /* padding vertical dikurangi jadi 6px */
+      margin-bottom: 20px;
+      box-shadow: 4px 4px black;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .panel img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .caption, .music-text-top {
+      font-size: 1.5em;
+      margin-top: 10px;
+      user-select: none;
+      text-align: center;
+    }
+
+    .sound-effect {
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #555;
+      font-style: italic;
+      margin-top: 5px;
+      user-select: none;
+    }
+
+    /* Panel musik layout */
+    .music-controls {
+      margin-top: 6px; /* jarak dikurangi */
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      user-select: none;
+    }
+
+    .music-controls button {
+      background-color: transparent;
+      border: none;
+      font-family: 'Amatic SC', cursive;
+      font-size: 24px; /* diperkecil dari 28px */
+      cursor: pointer;
+      padding: 0;
+      user-select: none;
+      color: black;
+      transition: transform 0.15s ease;
+    }
+    .music-controls button.play-button {
+      font-size: 28px; /* diperkecil dari 32px */
+    }
+    .music-controls button:hover {
+      transform: scale(1.2);
+      color: #555;
+    }
+
+    /* Tombol navigasi */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 2px 2px gray;
+      user-select: none;
+    }
+    .nav-buttons a:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Judul chapter 1 di atas panel musik -->
+  <h1>Chapter 2: Senyumnya Nggak Pakai Alarm</h1>
+
+  <!-- Panel musik dengan desain sama persis -->
+  <div class="music-panel">
+    <div class="music-text-top">Bacanya Sambil Dengerin Ini</div>
+    <div class="music-controls">
+      <audio id="audio" src="SC2.mp3"></audio>
+      <button onclick="restartAudio()" title="Restart Audio">⟲</button>
+      <button onclick="rewind()" title="Rewind 5 detik">↺</button>
+      <button onclick="togglePlay()" id="playBtn" class="play-button" title="Play/Pause">▶</button>
+      <button onclick="forward()" title="Forward 5 detik">↻</button>
+      <button onclick="restartAudio()" title="Restart Audio">⟳</button>
+    </div>
+  </div>
+
+  <!-- Panel cerita manga -->
+  <div class="panel">
+      <div class="caption"> 12 Desember 2023</div>
+    <div class="caption">Aku lihat dia lagi. Tapi kali ini di kantin.</div>
+    <img src="C2P1.png" alt="Gerbang Sekolah" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Di tengah kerumunan orang yang sibuk mikirin perut masing-masing... dia senyum. Dan lagi-lagi, hati aku langsung ngomong: “Aku suka dia.”</div>
+    <img src="C2P2.png" alt="Gadis Berjalan" />
+    </div>
+
+  <div class="panel">
+    <div class="caption">Dia ngobrol sama dua temannya. Aku nggak tau mereka bahas apa. Tapi kayaknya, nggak penting. Soalnya yang penting... dia senyum.</div>
+    <img src="C2P3.png" alt="Tatapan Mata" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Entah kenapa, tiap kali dia senyum... aku ngerasa kayak dapet oksigen tambahan.</div>
+    <img src="C2P4.png" alt="Siswa Diam" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Salah satu dari dua temannya itu aku kenal. Dan dengan semua alasan yang aku punya... aku rayu dia, biar mau kasih nomor HP si dia.</div>
+    <img src="C2P5.png" alt="Punggung Gadis" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Akhirnya dapet. Tapi lucunya, aku malah bingung sendiri. Mau chat tapi takut ganggu. Mau nggak chat, ya nanggung. Ini HP atau bom waktu sih?</div>
+    <img src="C2P6.png" alt="Harapan" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Sampai akhirnya, muncul ide kecil di kepala...</div>
+    <img src="C2P7.png" alt="Panel 7" />
+  </div>
+  
+  <div class="panel">
+     <div class="caption">13 Januari 2024</div>
+    <div class="caption">Aku nekat ngirim pesan pertama. Ajak dia main badminton. Cuma itu yang kepikiran.</div>
+    <img src="C2P8.png" alt="Panel 8" />
+  </div>
+  
+  <div class="panel">
+    <div class="caption">Ternyata... dia respon dengan ramah. Kayak kita udah temenan lama. Padahal baru juga chat.</div>
+    <img src="C2P9.png" alt="Panel 9" />
+  </div>
+  
+  <div class="panel">
+    <div class="caption">Rasanya kayak habis lari dari hantu tapi malah nemu taman bunga. Ternyata ketakutan aku cuma imajinasi. Hari itu, kami resmi... yaa, berteman. Kayaknya sih. Atau itu cuma aku yang ngaku-ngaku? Entahlah.</div>
+    <img src="C2P10.png" alt="Panel 10" />
+  </div>
+  
+  <div class="panel">
+    <div class="caption">Kita mulai sering ngobrol. Meskipun cuma nanya tugas, praktek, atau sekadar soal sekolah. Tapi bagiku... itu cukup buat bahagia beberapa hari ke depan.</div>
+    <img src="C2P11.png" alt="Panel 11" />
+  </div>
+  
+  <div class="panel">
+    <div class="caption">9 Februari 2024</div>
+    <div class="caption">Dia kirim reels lucu. Aku lupa isinya. Tapi aku panik. Reaksinya harus gimana ya? Akhirnya ku balas apa yang kepikiran. Dan dia ketawa.</div>
+    <img src="C2P12.png" alt="Panel 12" />
+  </div>
+  
+  <div class="panel">
+    <div class="caption">Dia emang begitu. Ceria. Tertawa. Dan... itulah kenapa aku suka dia.</div>
+    <img src="C2P13.png" alt="Panel 13" />
+  </div>
+  
+  <!-- Tombol navigasi -->
+  <div class="nav-buttons">
+    <a href="chapter1.html" title="Chapter Sebelumnya">← Chapter Sebelumnya</a>
+    <a href="chapter3.html" title="Chapter Selanjutnya">Chapter Selanjutnya →</a>
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playBtn = document.getElementById('playBtn');
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+        playBtn.textContent = '❚❚';
+      } else {
+        audio.pause();
+        playBtn.textContent = '▶';
+      }
+    }
+
+    function forward() {
+      audio.currentTime += 5;
+    }
+
+    function rewind() {
+      audio.currentTime -= 5;
+      if (audio.currentTime < 0) audio.currentTime = 0;
+    }
+
+    function restartAudio() {
+      audio.currentTime = 0;
+      if (!audio.paused) {
+        audio.play();
+      }
+    }
+
+    audio.addEventListener('ended', () => {
+      playBtn.textContent = '▶';
+    });
+  </script>
+
+</body>
+</html>

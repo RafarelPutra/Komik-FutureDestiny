@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chapter 4 -Langkah Pertama Setelah Rindu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Amatic SC', cursive;
+      margin: 0;
+      padding: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+
+    /* Desain panel cerita dan musik sama */
+    .panel, .music-panel {
+      background-color: white;
+      border: 2px solid black;
+      padding: 6px 15px; /* padding vertical dikurangi jadi 6px */
+      margin-bottom: 20px;
+      box-shadow: 4px 4px black;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .panel img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .caption, .music-text-top {
+      font-size: 1.5em;
+      margin-top: 10px;
+      user-select: none;
+      text-align: center;
+    }
+
+    .sound-effect {
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #555;
+      font-style: italic;
+      margin-top: 5px;
+      user-select: none;
+    }
+
+    /* Panel musik layout */
+    .music-controls {
+      margin-top: 6px; /* jarak dikurangi */
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      user-select: none;
+    }
+
+    .music-controls button {
+      background-color: transparent;
+      border: none;
+      font-family: 'Amatic SC', cursive;
+      font-size: 24px; /* diperkecil dari 28px */
+      cursor: pointer;
+      padding: 0;
+      user-select: none;
+      color: black;
+      transition: transform 0.15s ease;
+    }
+    .music-controls button.play-button {
+      font-size: 28px; /* diperkecil dari 32px */
+    }
+    .music-controls button:hover {
+      transform: scale(1.2);
+      color: #555;
+    }
+
+    /* Tombol navigasi */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 2px 2px gray;
+      user-select: none;
+    }
+    .nav-buttons a:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Judul chapter 1 di atas panel musik -->
+  <h1>Chapter 4: Langkah Pertama Setelah Rindu</h1>
+
+  <!-- Panel musik dengan desain sama persis -->
+  <div class="music-panel">
+    <div class="music-text-top">Bacanya Sambil Dengerin Ini</div>
+    <div class="music-controls">
+      <audio id="audio" src="SC4.mp3"></audio>
+      <button onclick="restartAudio()" title="Restart Audio">⟲</button>
+      <button onclick="rewind()" title="Rewind 5 detik">↺</button>
+      <button onclick="togglePlay()" id="playBtn" class="play-button" title="Play/Pause">▶</button>
+      <button onclick="forward()" title="Forward 5 detik">↻</button>
+      <button onclick="restartAudio()" title="Restart Audio">⟳</button>
+    </div>
+  </div>
+
+  <!-- Panel cerita manga -->
+  <div class="panel">
+      <div class="caption"> 25 November 2024</div>
+    <div class="caption">Aku udah di rumah. Rasanya kayak balik ke kehidupan lama... tapi satu hal yang bikin deg-degan: besok hari Senin.</div>
+    <img src="C4P1.png" alt="Gerbang Sekolah" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Padahal bisa aja aku istirahat dua hari, terus masuk hari Rabu. Tapi aku milih Senin. Biar cepet lihat dia lagi. Aku kangen.</div>
+    <img src="C4P2.png" alt="Gadis Berjalan" />
+    </div>
+
+  <div class="panel">
+    <div class="caption">Hari itu, jalanan menuju sekolah rasanya beda. Kayak semua pohon, tiang listrik, bahkan tukang gorengan di pinggir jalan—buka jalan biar aku bisa cepat lihat dia.</div>
+    <img src="C4P3.png" alt="Tatapan Mata" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Aku nggak langsung cari dia. Jalan pelan aja. Biar kelihatan biasa. Padahal, di kepala aku: “Mana dia? Mana dia?”</div>
+    <img src="C4P4.png" alt="Siswa Diam" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Dan akhirnya... aku lihat dia. Berdiri santai di depan kelas. Senyumnya... ya ampun, aku kangen banget sama itu.</div>
+    <img src="C4P5.png" alt="Punggung Gadis" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Kami ngobrol sedikit. Nggak panjang. Cuma bahas hasil PKL. Tapi cukup buat bikin hati ini lega.</div>
+    <img src="C4P6.png" alt="Harapan" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Hari-hari berikutnya, kami sesekali ketemu. Kadang sapa, kadang cuma tatap-tatapan kayak sinetron yang lupa nulis dialog.</div>
+    <img src="C4P7.png" alt="Panel 7" />
+  </div>
+  
+   <div class="panel">
+    <div class="caption">Waktu jalan terus. Dan tanpa sadar... hari perpisahan makin dekat. Aku mulai mikir: “Perlu nggak ya, aku bilang kalau aku suka dia?”</div>
+    <img src="C4P8.png" alt="Panel 7" />
+  </div>
+  
+   <div class="panel">
+    <div class="caption">Sebenarnya aku pengen bilang... di acara perpisahan nanti. Tapi tiap kali mikir gitu, ada suara kecil di kepala bilang: “Jangan. Belum waktunya.”</div>
+    <img src="C4P9.png" alt="Panel 7" />
+  </div>
+
+  <!-- Tombol navigasi -->
+  <div class="nav-buttons">
+    <a href="chapter3.html" title="Chapter Sebelumnya">← Chapter Sebelumnya</a>
+    <a href="chapter5.html" title="Chapter Selanjutnya">Chapter Selanjutnya →</a>
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playBtn = document.getElementById('playBtn');
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+        playBtn.textContent = '❚❚';
+      } else {
+        audio.pause();
+        playBtn.textContent = '▶';
+      }
+    }
+
+    function forward() {
+      audio.currentTime += 5;
+    }
+
+    function rewind() {
+      audio.currentTime -= 5;
+      if (audio.currentTime < 0) audio.currentTime = 0;
+    }
+
+    function restartAudio() {
+      audio.currentTime = 0;
+      if (!audio.paused) {
+        audio.play();
+      }
+    }
+
+    audio.addEventListener('ended', () => {
+      playBtn.textContent = '▶';
+    });
+  </script>
+
+</body>
+</html>

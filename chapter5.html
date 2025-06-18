@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chapter 5 -Rasa Yang Tak Sempat Diabadikan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Amatic SC', cursive;
+      margin: 0;
+      padding: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+
+    /* Desain panel cerita dan musik sama */
+    .panel, .music-panel {
+      background-color: white;
+      border: 2px solid black;
+      padding: 6px 15px; /* padding vertical dikurangi jadi 6px */
+      margin-bottom: 20px;
+      box-shadow: 4px 4px black;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .panel img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .caption, .music-text-top {
+      font-size: 1.5em;
+      margin-top: 10px;
+      user-select: none;
+      text-align: center;
+    }
+
+    .sound-effect {
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #555;
+      font-style: italic;
+      margin-top: 5px;
+      user-select: none;
+    }
+
+    /* Panel musik layout */
+    .music-controls {
+      margin-top: 6px; /* jarak dikurangi */
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      user-select: none;
+    }
+
+    .music-controls button {
+      background-color: transparent;
+      border: none;
+      font-family: 'Amatic SC', cursive;
+      font-size: 24px; /* diperkecil dari 28px */
+      cursor: pointer;
+      padding: 0;
+      user-select: none;
+      color: black;
+      transition: transform 0.15s ease;
+    }
+    .music-controls button.play-button {
+      font-size: 28px; /* diperkecil dari 32px */
+    }
+    .music-controls button:hover {
+      transform: scale(1.2);
+      color: #555;
+    }
+
+    /* Tombol navigasi */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 2px 2px gray;
+      user-select: none;
+    }
+    .nav-buttons a:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Judul chapter 1 di atas panel musik -->
+  <h1>Chapter 5: Rasa Yang Tak Sempat Diabadikan</h1>
+
+  <!-- Panel musik dengan desain sama persis -->
+  <div class="music-panel">
+    <div class="music-text-top">Bacanya Sambil Dengerin Ini</div>
+    <div class="music-controls">
+      <audio id="audio" src="SC5.mp3"></audio>
+      <button onclick="restartAudio()" title="Restart Audio">⟲</button>
+      <button onclick="rewind()" title="Rewind 5 detik">↺</button>
+      <button onclick="togglePlay()" id="playBtn" class="play-button" title="Play/Pause">▶</button>
+      <button onclick="forward()" title="Forward 5 detik">↻</button>
+      <button onclick="restartAudio()" title="Restart Audio">⟳</button>
+    </div>
+  </div>
+
+  <!-- Panel cerita manga -->
+  <div class="panel">
+      <div class="caption"> 3 Mei 2025</div>
+    <div class="caption">Hari perpisahan. Semua orang sibuk—ada yang dandan, ada yang latihan. Tapi aku cuma mikir: “Gimana caranya aku bisa foto bareng dia?”</div>
+    <img src="C5P1.png" alt="Gerbang Sekolah" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Dia tampil di paduan suara. Nyanyi lagu Himne Guru. Wajahnya serius, tapi tetap manis. Aku nonton terus, kayak TV rusak yang nggak bisa ganti channel.</div>
+    <img src="C5P2.png" alt="Gadis Berjalan" />
+    </div>
+
+  <div class="panel">
+    <div class="caption">Senyumnya muncul lagi. Dan kayak biasa, hatiku ikut senyum juga. Aku suka lihat dia kayak gitu, bahagia di atas panggung.</div>
+    <img src="C5P3.png" alt="Tatapan Mata" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Sebenarnya aku pengen banget ngajak dia foto berdua. Tapi... nggak tau kenapa, langkahku selalu kalah sama rasa takut.</div>
+    <img src="C5P4.png" alt="Siswa Diam" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Ada keinginan besar. Tapi ada ketakutan yang lebih besar dari itu. Dan hasilnya? Aku cuma bisa lihat dia... dari jauh.</div>
+    <img src="C5P5.png" alt="Punggung Gadis" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Dan hari itu, kita semua berpisah. Entah kapan ketemu lagi. Tapi satu yang pasti: aku masih pengen lihat dia lagi. Nanti... entah kapan.</div>
+    <img src="C5P6.png" alt="Harapan" />
+  </div>
+
+  <!-- Tombol navigasi -->
+  <div class="nav-buttons">
+    <a href="chapter4.html" title="Chapter Sebelumnya">← Chapter Sebelumnya</a>
+    <a href="final-chapter.html" title="Chapter Selanjutnya">Chapter Selanjutnya →</a>
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playBtn = document.getElementById('playBtn');
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+        playBtn.textContent = '❚❚';
+      } else {
+        audio.pause();
+        playBtn.textContent = '▶';
+      }
+    }
+
+    function forward() {
+      audio.currentTime += 5;
+    }
+
+    function rewind() {
+      audio.currentTime -= 5;
+      if (audio.currentTime < 0) audio.currentTime = 0;
+    }
+
+    function restartAudio() {
+      audio.currentTime = 0;
+      if (!audio.paused) {
+        audio.play();
+      }
+    }
+
+    audio.addEventListener('ended', () => {
+      playBtn.textContent = '▶';
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bonus Chapter -Untuk Rasa Dan Perasaannya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Amatic SC', cursive;
+      margin: 0;
+      padding: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+
+    /* Desain panel cerita dan musik sama */
+    .panel, .music-panel {
+      background-color: white;
+      border: 2px solid black;
+      padding: 6px 15px; /* padding vertical dikurangi jadi 6px */
+      margin-bottom: 20px;
+      box-shadow: 4px 4px black;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .panel img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .caption, .music-text-top {
+      font-size: 1.5em;
+      margin-top: 10px;
+      user-select: none;
+      text-align: center;
+    }
+
+    .sound-effect {
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #555;
+      font-style: italic;
+      margin-top: 5px;
+      user-select: none;
+    }
+
+    /* Panel musik layout */
+    .music-controls {
+      margin-top: 6px; /* jarak dikurangi */
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      user-select: none;
+    }
+
+    .music-controls button {
+      background-color: transparent;
+      border: none;
+      font-family: 'Amatic SC', cursive;
+      font-size: 24px; /* diperkecil dari 28px */
+      cursor: pointer;
+      padding: 0;
+      user-select: none;
+      color: black;
+      transition: transform 0.15s ease;
+    }
+    .music-controls button.play-button {
+      font-size: 28px; /* diperkecil dari 32px */
+    }
+    .music-controls button:hover {
+      transform: scale(1.2);
+      color: #555;
+    }
+
+    /* Tombol navigasi */
+    .bottom-nav-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.bottom-nav-button {
+  background-color: black;
+  color: white;
+  font-size: 1.5em;
+  padding: 10px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: 'Amatic SC', cursive;
+  box-shadow: 2px 2px gray;
+  transition: background-color 0.2s ease;
+}
+
+.bottom-nav-button:hover {
+  background-color: #333;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Judul chapter 1 di atas panel musik -->
+  <h1>Bonus Chapter: Untuk Rasa Dan Perasaannya</h1>
+
+  <!-- Panel musik dengan desain sama persis -->
+  <div class="music-panel">
+    <div class="music-text-top">Bacanya Sambil Dengerin Ini</div>
+    <div class="music-controls">
+      <audio id="audio" src="SC7.mp3"></audio>
+      <button onclick="restartAudio()" title="Restart Audio">⟲</button>
+      <button onclick="rewind()" title="Rewind 5 detik">↺</button>
+      <button onclick="togglePlay()" id="playBtn" class="play-button" title="Play/Pause">▶</button>
+      <button onclick="forward()" title="Forward 5 detik">↻</button>
+      <button onclick="restartAudio()" title="Restart Audio">⟳</button>
+    </div>
+  </div>
+
+  <!-- Panel cerita manga -->
+  <div class="panel">
+    <div class="caption">Sampai detik komik ini dirilis... dia masih belum tahu kalau aku mencintainya. Tapi siapa tahu, pas baca ini, dia sadar. Atau pura-pura gak tahu, juga gak apa-apa.</div>
+    <img src="C7P1.png" alt="Gerbang Sekolah" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Aku gak berharap apa-apa. Cuma... kalau Tuhan izinkan, tolong ya Tuhan, kasih tahu dia pelan-pelan, bahwa cerita ini tentang dia.</div>
+    <img src="C7P2.png" alt="Gadis Berjalan" />
+    </div>
+
+  <div class="panel">
+    <div class="caption">Kalau kamu sadar ini tentang kamu...
+    terima kasih. Bukan karena kamu sempurna. Tapi karena kamu bisa bikin aku mau jadi lebih baik tanpa maksa.</div>
+    <img src="C7P3.png" alt="Tatapan Mata" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Terima kasih udah bagi senyummu. Gak banyak, tapi cukup. Dan senyum itu... masih nyangkut sampai sekarang.</div>
+    <img src="C7P4.png" alt="Siswa Diam" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Kejar semua mimpi kamu. Raih semua yang kamu pikir mustahil. Buat imajinasi kamu jadi kenyataan. Untuk kamu... dan untuk semua yang kamu sayangi nanti.</div>
+    <img src="C7P5.png" alt="Punggung Gadis" />
+  </div>
+
+  <div class="panel">
+    <div class="caption">Dan satu hal lagi...</div>
+    <img src="C7P6.png" alt="Harapan" />
+  </div>
+  
+   <div class="panel">
+    <div class="caption">Dimanapun kamu berada nanti, percayalah...
+Aku bakal nyari kamu.</div>
+    <img src="C7P7.png" alt="Harapan" />
+  </div>
+  
+   <div class="panel">
+    <div class="caption">Demi melaksanakan takdir Tuhan... yang udah ditulis untuk kita.
+Untuk</div>
+<div class="caption">"Our Future Destiny."</div>
+    <img src="C7P8.png" alt="Harapan" />
+  </div>
+
+  <!-- Tombol Navigasi Tengah Bawah -->
+<div class="bottom-nav-container">
+  <a href="KP.html" class="bottom-nav-button">Ini Beneran Selesai</a>
+</div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playBtn = document.getElementById('playBtn');
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+        playBtn.textContent = '❚❚';
+      } else {
+        audio.pause();
+        playBtn.textContent = '▶';
+      }
+    }
+
+    function forward() {
+      audio.currentTime += 5;
+    }
+
+    function rewind() {
+      audio.currentTime -= 5;
+      if (audio.currentTime < 0) audio.currentTime = 0;
+    }
+
+    function restartAudio() {
+      audio.currentTime = 0;
+      if (!audio.paused) {
+        audio.play();
+      }
+    }
+
+    audio.addEventListener('ended', () => {
+      playBtn.textContent = '▶';
+    });
+  </script>
+
+</body>
+</html>
